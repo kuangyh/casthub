@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <title>CastHub</title>
+  <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+  <script src="app.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="page">
+  <div class="site-title">CastHub</div>
+  <div class="player-section">
+    <div class="progress">
+      <input type="range" min="0" max="100" class="casthub-progress" disabled>
+    </div>
+    <div class="status casthub-status"></div>
+  </div>
+  <div class="input-section">
+    <div class="input">
+      <input type="text" class="casthub-url">
+    </div>
+    <div class="submit">
+      <div class="button casthub-play">Play</div>
+    </div>
+  </div>
+  <div class="playlist-section">
+    <div class="header">Playlist</div>
+    <ul class="playlist"></ul>
+  </div>
+</div>
+<script>
+window.hub = new app.CastHub(document.body);
+
+function addPlaylist(el, ls) {
+  ls.map(function(item) {
+    var a = document.createElement('a');
+    a.href = item['url'];
+    a.innerText = item['title'];
+    a.onclick = function(e) {
+      hub.loadMedia(item['url']);
+      e.preventDefault();
+    };
+    var li = document.createElement('li');
+    li.appendChild(a);
+    el.appendChild(li);
+  });
+};
+
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+  var data = JSON.parse(xhr.responseText);
+  addPlaylist(document.querySelector('.playlist'), data);
+};
+xhr.open('GET', '/s/data/casthub_playlist.json');
+xhr.send(null);
+</script>
+</body>
+</html>

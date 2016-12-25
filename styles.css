@@ -1,0 +1,90 @@
+body {
+  font-weight: 300;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.site-title {
+  font-size: 128px;
+  text-align: center;
+  color: #944;
+}
+
+.page {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+}
+
+.player-section {
+  margin-top: 1em;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.player-section .status {
+  text-align: right;
+  margin-left: 0.5em;
+}
+
+.player-section .progress {
+  flex-grow: 1;
+}
+
+.player-section .progress input {
+  width: 100%;
+}
+
+.input-section {
+  font-size: 18px;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.input-section .input {
+  flex-grow: 1;
+}
+
+.input-section .input input {
+  font-size: 16px;
+  height: 1.5em;
+  width: 100%;
+  padding: 0;
+  border-width: 0 0 1px 0;
+  border-color: black;
+}
+
+.input-section .submit {
+  margin-left: 0.5em;
+}
+
+.input-section .button {
+  display: inline-block;
+  width: 80px;
+  height: 1.5em;
+  background: #944;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.playlist-section {
+  margin-top: 2em;
+}
+
+.playlist-section .header {
+  font-size: 32px;
+  margin-bottom: 0.5em;
+}
+
+.playlist-section ul {
+  font-size: 16px;
+  line-height: 1.5em;
+}
